@@ -4,4 +4,4 @@ togglz:
     enabled: false
 spring:
   profiles:
-    active: release-toggles
+    active: feature-toggles

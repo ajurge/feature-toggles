@@ -15,7 +15,7 @@ import org.togglz.core.user.UserProvider;
 import java.io.File;
 
 @Configuration
-@Profile("release-toggles")
+@Profile("feature-toggles")
 public class FeatureTogglesConfig {
 
     @Bean
