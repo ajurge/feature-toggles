@@ -1,0 +1,6 @@
+togglz:
+  feature-toggles:
+    properties-file-path: C:\test\feature-toggles.properties
+  console:
+    use-management-port: false
+    enabled: true

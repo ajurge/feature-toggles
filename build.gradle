@@ -1,0 +1,55 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.2.RELEASE'
+		togglezVersion = '2.5.0.Final'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.bipinet.spring'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+
+sourceSets {
+	togglzIndexHtml {
+		resources {
+			srcDirs "src/main/java"
+			includes = ["org/togglz/console/index.html"]
+		}
+	}
+	main {
+		resources {
+			source togglzIndexHtml.resources
+		}
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-devtools')
+	compile('org.springframework.boot:spring-boot-starter-aop')
+	compile("org.togglz:togglz-console:${togglezVersion}")
+	compile("org.togglz:togglz-spring-security:${togglezVersion}")
+	compile("org.togglz:togglz-spring-boot-starter:${togglezVersion}")
+	compile("com.floreysoft:jmte:3.0")
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.springframework.security:spring-security-test')
+	testCompile("org.togglz:togglz-junit:${togglezVersion}")
+}

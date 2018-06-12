@@ -1,0 +1,7 @@
+togglz:
+  console:
+    use-management-port: false
+    enabled: false
+spring:
+  profiles:
+    active: release-toggles
