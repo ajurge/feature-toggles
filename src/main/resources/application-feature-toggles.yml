@@ -2,5 +2,5 @@ togglz:
   feature-toggles:
     properties-file-path: feature-toggles.properties
   console:
-    use-management-port: false
     enabled: true
+    feature-admin-authority: ROLE_ADMIN

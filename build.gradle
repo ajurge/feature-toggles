@@ -1,6 +1,8 @@
 buildscript {
 	ext {
 		springBootVersion = '2.0.2.RELEASE'
+		bootstrapVersion = '3.3.7'
+		jqueryVersion = '3.2.1'
 		togglezVersion = '2.5.0.Final'
 	}
 	repositories {
@@ -20,31 +22,37 @@ group = 'com.bipinet.spring'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
-
-sourceSets {
-	togglzIndexHtml {
-		resources {
-			srcDirs "src/main/java"
-			includes = ["org/togglz/console/index.html"]
-		}
-	}
-	main {
-		resources {
-			source togglzIndexHtml.resources
-		}
-	}
-}
+//sourceSets {
+//	togglzIndexHtml {
+//		resources {
+//			srcDirs "src/main/java"
+//			includes = ["org/togglz/console/index.html"]
+//		}
+//	}
+//	main {
+//		resources {
+//			source togglzIndexHtml.resources
+//		}
+//	}
+//}
 
 repositories {
 	mavenCentral()
 }
-
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-devtools')
 	compile('org.springframework.boot:spring-boot-starter-aop')
+	compile('org.springframework.boot:spring-boot-starter-jdbc')
+	runtime('com.h2database:h2')
+	compile('org.springframework.boot:spring-boot-starter-security')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4')
+	compile('nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect')
+	compile("org.webjars:bootstrap:${bootstrapVersion}")
+	compile("org.webjars:jquery:${jqueryVersion}")
 	compile("org.togglz:togglz-console:${togglezVersion}")
 	compile("org.togglz:togglz-spring-security:${togglezVersion}")
 	compile("org.togglz:togglz-spring-boot-starter:${togglezVersion}")

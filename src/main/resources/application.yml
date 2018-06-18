@@ -2,6 +2,17 @@ togglz:
   console:
     use-management-port: false
     enabled: false
+  endpoint:
+      enabled: false
 spring:
   profiles:
     active: feature-toggles
+  thymeleaf:
+      cache: false
+logging:
+  level:
+    root: WARN
+    com.bipinet.spring: DEBUG
+    org.togglz: DEBUG
+    org.springframework.web: INFO
+    org.springframework.security: INFO

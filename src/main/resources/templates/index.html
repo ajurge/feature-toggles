@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Index</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <h1>Togglz Feature Toggles and Spring Security Thymeleaf</h1>
+    <p>This is an unsecured page, but you can access the secured pages after authenticating.</p>
+    <h2>Unsecured links:</h2>
+    <ul>
+        <li>Go to the <a href="/greeting" th:href="@{/greeting}">greeting</a></li>
+        <li>Go to the <a href="/info" th:href="@{/info}">info</a></li>
+    </ul>
+    <h2>Secured links:</h2>
+    <h3>Basic Auth:</h3>
+    <ul>
+        <li>Go to the <a href="/togglz-console" th:href="@{/togglz-console}">togglz-console</a></li>
+    </ul>
+    <h3>Form Login:</h3>
+    <ul>
+        <li>Go to the <a href="/form-login" th:href="@{/form-login}">form-login</a></li>
+    </ul>
+</div>
+</body>
+</html>

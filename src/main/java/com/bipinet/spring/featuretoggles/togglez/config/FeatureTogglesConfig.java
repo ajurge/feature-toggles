@@ -9,8 +9,6 @@ import org.togglz.core.manager.EnumBasedFeatureProvider;
 import org.togglz.core.repository.StateRepository;
 import org.togglz.core.repository.file.FileBasedStateRepository;
 import org.togglz.core.spi.FeatureProvider;
-import org.togglz.core.user.SimpleFeatureUser;
-import org.togglz.core.user.UserProvider;
 
 import java.io.File;
 
@@ -28,8 +26,8 @@ public class FeatureTogglesConfig {
         return new FileBasedStateRepository(new File(pathToFeatureTogglesPropertiesFile), Integer.MAX_VALUE);
     }
 
-    @Bean
+/*    @Bean
     public UserProvider getUserProvider() {
         return () -> new SimpleFeatureUser("admin", true);
-    }
+    }*/
 }
