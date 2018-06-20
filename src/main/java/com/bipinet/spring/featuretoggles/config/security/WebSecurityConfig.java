@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/webjars/**").permitAll()
                 .antMatchers("/greeting", "/info").permitAll()
                 //.antMatchers("/togglz-console").hasRole("ADMIN")
-                .antMatchers("/form-login").authenticated()
+                .antMatchers("/form-login").hasAnyRole("MANAGER", "ADMIN")
                 .and()
                 .formLogin()
                 .loginPage(getPageRelativePath(LOGIN_PAGE_NAME))
