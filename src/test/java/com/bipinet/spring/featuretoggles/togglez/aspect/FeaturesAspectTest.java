@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Service;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.togglz.core.context.FeatureContext;
@@ -30,7 +31,6 @@ import static org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER
 @Configuration
 @EnableAspectJAutoProxy
 @ComponentScan(basePackages = {"com.bipinet.spring.featuretoggles.togglez.aspect"})
-@DirtiesContext(classMode = AFTER_CLASS)
 class TestSpringContextAop {
 }
 
@@ -46,6 +46,7 @@ class TestServiceImpl {
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = {TogglzAutoConfiguration.class, FeatureTogglesConfig.class, TestSpringContextAop.class})
 @DirtiesContext(classMode = AFTER_CLASS)
+@ActiveProfiles("feature-toggles")
 public class FeaturesAspectTest {
 
     @Rule
