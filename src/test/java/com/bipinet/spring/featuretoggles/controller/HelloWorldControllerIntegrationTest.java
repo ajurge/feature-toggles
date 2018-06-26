@@ -3,14 +3,16 @@ package com.bipinet.spring.featuretoggles.controller;
 import com.bipinet.spring.featuretoggles.AbstractIntegrationTest;
 import com.bipinet.spring.featuretoggles.togglez.toggles.FeatureToggles;
 import org.junit.Test;
+import org.springframework.test.annotation.DirtiesContext;
 import org.togglz.core.context.FeatureContext;
 import org.togglz.core.repository.FeatureState;
 
+import static org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER_CLASS;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
+@DirtiesContext(classMode = AFTER_CLASS)
 public class HelloWorldControllerIntegrationTest extends AbstractIntegrationTest {
 
     private static final String GREETING_URL = "/greeting";
